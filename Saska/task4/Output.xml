@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='utf-8'?>
+<entities>
+    <entity>
+        <user>
+            <userId>1</userId>
+            <firstName>Alex</firstName>
+            <lastName>Shirko</lastName>
+            <playlistSize>12</playlistSize>
+        </user>
+        <user>
+            <userId>2</userId>
+            <firstName>Semen</firstName>
+            <lastName>Mahalin</lastName>
+            <playlistSize>5</playlistSize>
+        </user>
+        <user>
+            <userId>3</userId>
+            <firstName>Ivan</firstName>
+            <lastName>Pozdnyakov</lastName>
+            <playlistSize>4</playlistSize>
+        </user>
+        <user>
+            <userId>4</userId>
+            <firstName>Kirill</firstName>
+            <lastName>Kuzmin</lastName>
+            <playlistSize>1</playlistSize>
+        </user>
+        <user>
+            <userId>5</userId>
+            <firstName>Ilya</firstName>
+            <lastName>Molchanov</lastName>
+            <playlistSize>4</playlistSize>
+        </user>
+    </entity>
+    <entity>
+        <track>
+            <trackId>1</trackId>
+            <albumId>2</albumId>
+            <title>Delusion</title>
+            <singer>We Are The Catalyst</singer>
+            <duration>00:03:50</duration>
+        </track>
+        <track>
+            <trackId>2</trackId>
+            <albumId>2</albumId>
+            <title>Open Door</title>
+            <singer>We Are The Catalyst</singer>
+            <duration>00:03:34</duration>
+        </track>
+        <track>
+            <trackId>3</trackId>
+            <albumId>2</albumId>
+            <title>One More Day</title>
+            <singer>We Are The Catalyst</singer>
+            <duration>00:03:28</duration>
+        </track>
+        <track>
+            <trackId>4</trackId>
+            <albumId>2</albumId>
+            <title>Askja</title>
+            <singer>We Are The Catalyst</singer>
+            <duration>00:04:02</duration>
+        </track>
+        <track>
+            <trackId>5</trackId>
+            <albumId>3</albumId>
+            <title>Our Way to the Sun</title>
+            <singer>We Are The Catalyst</singer>
+            <duration>00:04:03</duration>
+        </track>
+        <track>
+            <trackId>6</trackId>
+            <albumId>3</albumId>
+            <title>Not Alone</title>
+            <singer>We Are The Catalyst</singer>
+            <duration>00:05:08</duration>
+        </track>
+        <track>
+            <trackId>7</trackId>
+            <albumId>3</albumId>
+            <title>Don’t You Worry Child</title>
+            <singer>We Are The Catalyst</singer>
+            <duration>00:04:27</duration>
+        </track>
+        <track>
+            <trackId>8</trackId>
+            <albumId>4</albumId>
+            <title>The Code</title>
+            <singer>We Are The Catalyst</singer>
+            <duration>00:03:09</duration>
+        </track>
+        <track>
+            <trackId>9</trackId>
+            <albumId>4</albumId>
+            <title>In Shadows</title>
+            <singer>We Are The Catalyst</singer>
+            <duration>00:03:30</duration>
+        </track>
+        <track>
+            <trackId>10</trackId>
+            <albumId>4</albumId>
+            <title>Dust</title>
+            <singer>We Are The Catalyst</singer>
+            <duration>00:03:48</duration>
+        </track>
+        <track>
+            <trackId>11</trackId>
+            <albumId>1</albumId>
+            <title>Losing My Mind</title>
+            <singer>We Are The Catalyst</singer>
+            <duration>00:03:15</duration>
+        </track>
+        <track>
+            <trackId>12</trackId>
+            <albumId>1</albumId>
+            <title>Blinding Lights</title>
+            <singer>We Are The Catalyst</singer>
+            <duration>00:03:17</duration>
+        </track>
+    </entity>
+    <entity>
+        <user_playlist>
+            <userId>1</userId>
+            <trackId>1</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>1</userId>
+            <trackId>2</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>1</userId>
+            <trackId>3</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>1</userId>
+            <trackId>4</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>1</userId>
+            <trackId>5</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>1</userId>
+            <trackId>6</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>1</userId>
+            <trackId>7</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>1</userId>
+            <trackId>8</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>1</userId>
+            <trackId>9</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>1</userId>
+            <trackId>10</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>1</userId>
+            <trackId>11</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>1</userId>
+            <trackId>12</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>2</userId>
+            <trackId>11</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>2</userId>
+            <trackId>1</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>2</userId>
+            <trackId>3</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>2</userId>
+            <trackId>5</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>2</userId>
+            <trackId>7</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>3</userId>
+            <trackId>9</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>3</userId>
+            <trackId>11</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>3</userId>
+            <trackId>1</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>3</userId>
+            <trackId>2</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>4</userId>
+            <trackId>3</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>5</userId>
+            <trackId>5</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>5</userId>
+            <trackId>6</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>5</userId>
+            <trackId>12</trackId>
+        </user_playlist>
+        <user_playlist>
+            <userId>5</userId>
+            <trackId>4</trackId>
+        </user_playlist>
+    </entity>
+    <entity>
+        <album>
+            <albumId>1</albumId>
+            <title>Single</title>
+            <description>Single</description>
+            <pubDate>None</pubDate>
+        </album>
+        <album>
+            <albumId>2</albumId>
+            <title>Elevation</title>
+            <description>alternative metal</description>
+            <pubDate>2016-01-01</pubDate>
+        </album>
+        <album>
+            <albumId>3</albumId>
+            <title>Monuments</title>
+            <description>alternative metal</description>
+            <pubDate>2016-10-11</pubDate>
+        </album>
+        <album>
+            <albumId>4</albumId>
+            <title>Ephemeral</title>
+            <description>alternative metal</description>
+            <pubDate>2019-01-01</pubDate>
+        </album>
+    </entity>
+</entities>

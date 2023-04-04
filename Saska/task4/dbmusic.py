@@ -1,6 +1,8 @@
 import sqlite3
 import datetime
 
+entities = {'user': 'Пользователи','track': 'Треки', 'user_playlist': 'Плейлист пользователей', 'album': 'Альбомы'}
+
 
 def open_connection():
     conn = sqlite3.connect('music.db')
@@ -40,9 +42,9 @@ def create_entities(conn):
 
     cur.execute("""
         CREATE TABLE IF NOT EXISTS user_playlist(
+            user_playlist_id INTEGER Primary key AUTOINCREMENT NOT NULL,
             user_id INTEGER NOT NULL REFERENCES user(user_id),
-            track_id INTEGER NOT NULL REFERENCES track(track_id),
-            PRIMARY KEY (user_id, track_id)
+            track_id INTEGER NOT NULL REFERENCES track(track_id)
         )
     """)
     conn.commit()
@@ -95,32 +97,32 @@ def insert_data(conn):
             12: (12, 1, 'Blinding Lights', 'We Are The Catalyst', f'{datetime.time(0, 3, 17)}')
         },
         'user_playlist': {
-            1: (1, 1),
-            2: (1, 2),
-            3: (1, 3),
-            4: (1, 4),
-            5: (1, 5),
-            7: (1, 6),
-            8: (1, 7),
-            9: (1, 8),
-            10: (1, 9),
-            11: (1, 10),
-            12: (1, 11),
-            13: (1, 12),
-            14: (2, 11),
-            15: (2, 1),
-            16: (2, 3),
-            17: (2, 5),
-            18: (2, 7),
-            19: (3, 9),
-            20: (3, 11),
-            21: (3, 1),
-            22: (3, 2),
-            23: (4, 3),
-            24: (5, 5),
-            25: (5, 6),
-            26: (5, 12),
-            27: (5, 4),
+            1: (1, 1, 1),
+            2: (2, 1, 2),
+            3: (3, 1, 3),
+            4: (4, 1, 4),
+            5: (5, 1, 5),
+            7: (6, 1, 6),
+            8: (7, 1, 7),
+            9: (8, 1, 8),
+            10: (9, 1, 9),
+            11: (10, 1, 10),
+            12: (11, 1, 11),
+            13: (12, 1, 12),
+            14: (13, 2, 11),
+            15: (14, 2, 1),
+            16: (15, 2, 3),
+            17: (16, 2, 5),
+            18: (17, 2, 7),
+            19: (18, 3, 9),
+            20: (19, 3, 11),
+            21: (20, 3, 1),
+            22: (21, 3, 2),
+            23: (22, 4, 3),
+            24: (23, 5, 5),
+            25: (24, 5, 6),
+            26: (25, 5, 12),
+            27: (26, 5, 4),
         }
     }
 
@@ -162,3 +164,9 @@ def get_all_from(conn, table):
     cur.execute(f"SELECT * FROM {table}")
     data = cur.fetchall()
     return data
+
+
+def delete_record_from(conn, table, id_record):
+    cur = conn.cursor()
+    cur.execute(f'DELETE FROM {table} WHERE {table}_id = {id_record};')
+    conn.commit()

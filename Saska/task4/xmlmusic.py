@@ -7,7 +7,7 @@ entities = ['user', 'track', 'user_playlist', 'album']
 tags = {
     'user' : ['userId', 'firstName', 'lastName', 'playlistSize'],
     'track': ['trackId', 'albumId', 'title', 'singer', 'duration'],
-    'user_playlist': ['userId', 'trackId'],
+    'user_playlist': ['userPlaylistId', 'userId', 'trackId'],
     'album': ['albumId', 'title', 'description', 'pubDate']
 }
 

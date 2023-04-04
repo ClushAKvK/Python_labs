@@ -6,7 +6,6 @@ from Saska.task4 import xmlmusic
 def main():
     conn = dbmusic.open_connection()
     dbmusic.create_entities(conn)
-    # dbmusic.insert(conn, 'User', (1, 'Alex', 'Shirko', 123))
     dbmusic.insert_data(conn)
     conn.close()
 

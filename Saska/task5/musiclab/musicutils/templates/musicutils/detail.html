@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ model_name }}</title>
+</head>
+<body>
+    <table>
+        <caption><h2>{{ model_name }}</h2></caption>
+        <tr>
+            {% for field in fields %}
+                <th>{{ field }}</th>
+            {% endfor %}
+        </tr>
+
+        {% for record in records %}
+            <tr>
+                {% for val in record.values %}
+                    <td>{{ val }}</td>
+                {% endfor %}
+                <td><form action="{% url 'music_utils:delete_record' table_id record.id %}" method="GET">
+                    {% csrf_token %}
+                    <button type="submit">-</button>
+                </form></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h4>Добавить новую запись</h4>
+    <form method="POST" action="{% url 'music_utils:add_record' table_id %}">
+        {% csrf_token %}
+
+        <table>
+            {% for field in fields %}
+                {% if field != 'ID' %}
+                    {% if model_name == 'Плей-Листы Пользователей' %}
+                        <tr>
+                            <td>{{ field }}:</td>
+                            {% if field == 'Пользователь' %}
+                                <td><select name="user">
+                                    {% for user in users %}
+                                        <option value="{{ user.id }}">{{ user }}</option>
+                                    {% endfor %}
+                                </select></td>
+                            {% elif field == 'Трек' %}
+                                <td><select name="track">
+                                    {% for track in tracks %}
+                                        <option value="{{ track.id }}">{{ track }}</option>
+                                    {% endfor %}
+                                </select></td>
+                            {% endif %}
+                        </tr>
+                    {% else %}
+                        <tr>
+                            {% if model_name == 'Треки' and field == 'Альбом' %}
+                                <td>{{ field }}:</td>
+                                <td><select name="album">
+                                    {% for album in albums %}
+                                        <option value="{{ album.id }}">{{ album }}</option>
+                                    {% endfor %}
+                                </select></td>
+                            {% elif model_name == 'Треки' and field == 'Продолжительность' %}
+                                <td>{{ field }}:</td>
+                                <td><input name="{{ forloop.counter0 }}" type="time" value="00:00"></td>
+                            {% elif model_name == 'Альбомы' and field == 'Дата публикации' %}
+                                <td>{{ field }}:</td>
+                                <td><input name="{{ forloop.counter0 }}" type="date" value="2023-04-15"></td>
+                            {% elif model_name == 'Пользователи' and field == 'Треков добавлено' %}
+                            {% else %}
+                                <td>{{ field }}:</td>
+                                <td><input name="{{ forloop.counter0 }}" type="text"></td>
+                            {% endif %}
+                        </tr>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </table>
+        <br>
+        <div><button type="submit">Сохранить</button></div>
+    </form>
+
+    <br><div><a href="{% url 'music_utils:index' %}">Вернуться на главную</a></div>
+</body>
+</html>

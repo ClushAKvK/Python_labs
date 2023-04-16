@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<entities>
+    <entity>
+        <user>
+            <userId>1</userId>
+            <firstName>Dmitri</firstName>
+            <lastName>Goblin</lastName>
+        </user>
+        <user>
+            <userId>2</userId>
+            <firstName>Rayan</firstName>
+            <lastName>Gosling</lastName>
+        </user>
+        <user>
+            <userId>3</userId>
+            <firstName>Kianno</firstName>
+            <lastName>Rivz</lastName>
+        </user>
+    </entity>
+    <entity>
+        <electronic>
+            <electronicId>1</electronicId>
+            <title>StreamCam</title>
+            <manufacturer>Logitech</manufacturer>
+            <price>7580</price>
+        </electronic>
+        <electronic>
+            <electronicId>2</electronicId>
+            <title>VSTARCAM CU2WIP</title>
+            <manufacturer>STARCAM</manufacturer>
+            <price>3040</price>
+        </electronic>
+        <electronic>
+            <electronicId>3</electronicId>
+            <title>Rekam A340</title>
+            <manufacturer>Rekam</manufacturer>
+            <price>2790</price>
+        </electronic>
+    </entity>
+    <entity>
+        <basket>
+            <basketId>1</basketId>
+            <userId>1</userId>
+            <electronicId>1</electronicId>
+        </basket>
+        <basket>
+            <basketId>2</basketId>
+            <userId>1</userId>
+            <electronicId>2</electronicId>
+        </basket>
+        <basket>
+            <basketId>3</basketId>
+            <userId>1</userId>
+            <electronicId>3</electronicId>
+        </basket>
+        <basket>
+            <basketId>4</basketId>
+            <userId>2</userId>
+            <electronicId>1</electronicId>
+        </basket>
+        <basket>
+            <basketId>5</basketId>
+            <userId>3</userId>
+            <electronicId>2</electronicId>
+        </basket>
+    </entity>
+</entities>

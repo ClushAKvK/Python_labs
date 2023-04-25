@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ model_name }}</title>
+</head>
+<body>
+    <table>
+        <caption><h2>{{ model_name }}</h2></caption>
+        <tr>
+            {% for field in fields %}
+                <th>{{ field }}</th>
+            {% endfor %}
+        </tr>
+
+        {% for record in records %}
+            <tr>
+                {% for val in record.values %}
+                    <td>{{ val }}</td>
+                {% endfor %}
+                <td><form action="{% url 'soft:delete_record' table_id record.id %}" method="GET">
+                    {% csrf_token %}
+                    <button type="submit">-</button>
+                </form></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h4>Добавить новую запись</h4>
+    <form method="POST" action="{% url 'soft:add_record' table_id %}">
+        {% csrf_token %}
+
+        <table>
+            {% for field in fields %}
+                {% if field != 'ID' %}
+                    {% if model_name == 'По - Компании' %}
+                        <tr>
+                            <td>{{ field }}:</td>
+                            {% if field == 'Программное обеспечение' %}
+                                <td><select name="software">
+                                    {% for software in softwares %}
+                                        <option value="{{ software.id }}">{{ software }}</option>
+                                    {% endfor %}
+                                </select></td>
+                            {% elif field == 'Компания' %}
+                                <td><select name="company">
+                                    {% for company in companys %}
+                                        <option value="{{ company.id }}">{{ company.name }}</option>
+                                    {% endfor %}
+                                </select></td>
+                            {% endif %}
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td>{{ field }}:</td>
+                            <td><input name="{{ forloop.counter0 }}" type="text"></td>
+                        </tr>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </table>
+        <br>
+        <div><button type="submit">Сохранить</button></div>
+    </form>
+
+    <br><div><a href="{% url 'soft:index' %}">Вернуться на главную</a></div>
+</body>
+</html>

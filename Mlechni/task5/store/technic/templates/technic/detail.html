@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ model_name }}</title>
+</head>
+<body>
+    <table>
+        <caption><h2>{{ model_name }}</h2></caption>
+        <tr>
+            {% for field in fields %}
+                <th>{{ field }}</th>
+            {% endfor %}
+        </tr>
+
+        {% for record in records %}
+            <tr>
+                {% for val in record.values %}
+                    <td>{{ val }}</td>
+                {% endfor %}
+                <td><form action="{% url 'technic:delete_record' table_id record.id %}" method="GET">
+                    {% csrf_token %}
+                    <button type="submit">-</button>
+                </form></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h4>Добавить новую запись</h4>
+    <form method="POST" action="{% url 'technic:add_record' table_id %}">
+        {% csrf_token %}
+
+        <table>
+            {% for field in fields %}
+                {% if field != 'ID' %}
+                    {% if model_name == 'Корзины' %}
+                        <tr>
+                            <td>{{ field }}:</td>
+                            {% if field == 'Пользователь' %}
+                                <td><select name="user">
+                                    {% for user in users %}
+                                        <option value="{{ user.id }}">{{ user }}</option>
+                                    {% endfor %}
+                                </select></td>
+                            {% elif field == 'Электроника' %}
+                                <td><select name="electronic">
+                                    {% for electronic in electronics %}
+                                        <option value="{{ electronic.id }}">{{ electronic }}</option>
+                                    {% endfor %}
+                                </select></td>
+                            {% endif %}
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td>{{ field }}:</td>
+                            <td><input name="{{ forloop.counter0 }}" type="text"></td>
+                        </tr>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </table>
+        <br>
+        <div><button type="submit">Сохранить</button></div>
+    </form>
+
+    <br><div><a href="{% url 'technic:index' %}">Вернуться на главную</a></div>
+</body>
+</html>

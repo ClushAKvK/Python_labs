@@ -6,6 +6,7 @@ from django.db import models
 class Software(models.Model):
     name = models.CharField(max_length=250, verbose_name="Название")
     slogan = models.CharField(max_length=350, verbose_name="Слоган")
+    price = models.IntegerField(verbose_name="Цена")
 
     class Meta:
         verbose_name = 'Программное обеспечение'

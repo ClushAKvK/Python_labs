@@ -26,7 +26,7 @@ admin.site.register(Software, SoftwareAdmin)
 class CompanyAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,                 {'fields': ['name']}),
-        ('Данные о симптомах', {'fields': ['description']})
+        ('Данные о компании',  {'fields': ['description']})
     ]
     list_display = ('name', 'description')
     inlines = [SoftwareCompanyInline]

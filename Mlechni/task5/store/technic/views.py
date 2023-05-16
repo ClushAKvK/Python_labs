@@ -79,6 +79,26 @@ def add_record(request, table_id):
     return redirect(reverse('technic:detail', args=(table_id,)))
 
 
+def update_record(request, table_id):
+    model = models[table_id]
+
+    # try:
+    #     params = [model.objects.order_by('-id').first().id + 1]
+    # except AttributeError:
+    #     params = [1]
+    params = []
+    if model._meta.model_name == 'basket':
+        params.append(request.POST['0'])
+        params.append(request.POST['user'])
+        params.append(request.POST['electronic'])
+    else:
+        for key, val in request.POST.items():
+            if key != 'csrfmiddlewaretoken':
+                params.append(val)
+
+    managedb.update_record(model, params)
+    return redirect(reverse('technic:detail', args=(table_id,)))
+
 def delete_record(request, table_id, row_id):
     model = models[table_id]
     # print(model.objects.get(pk=row_id))

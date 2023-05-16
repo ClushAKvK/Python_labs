@@ -29,6 +29,43 @@
         {% endfor %}
     </table>
 
+    <h4>Изменить какую-нибудь запись</h4>
+    <form method="POST" action="{% url 'technic:update_record' table_id %}">
+        {% csrf_token %}
+
+        <table>
+            {% for field in fields %}
+                {% if model_name == 'Корзины' %}
+                    <tr>
+                        <td>{{ field }}:</td>
+                        {% if field == 'Пользователь' %}
+                            <td><select name="user">
+                                {% for user in users %}
+                                    <option value="{{ user.id }}">{{ user }}</option>
+                                {% endfor %}
+                            </select></td>
+                        {% elif field == 'Электроника' %}
+                            <td><select name="electronic">
+                                {% for electronic in electronics %}
+                                    <option value="{{ electronic.id }}">{{ electronic }}</option>
+                                {% endfor %}
+                            </select></td>
+                        {% elif field == 'ID' %}
+                            <td><input name="{{ forloop.counter0 }}" type="text"></td>
+                        {% endif %}
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td>{{ field }}:</td>
+                        <td><input name="{{ forloop.counter0 }}" type="text"></td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+        <br>
+        <div><button type="submit">Изменить</button></div>
+    </form>
+
     <h4>Добавить новую запись</h4>
     <form method="POST" action="{% url 'technic:add_record' table_id %}">
         {% csrf_token %}

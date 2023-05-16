@@ -8,5 +8,6 @@ urlpatterns = [
     path('create_xml/', views.create_xml, name='create_xml'),
     path('<int:table_id>/detail', views.detail, name='detail'),
     path('<int:table_id>/add_record', views.add_record, name='add_record'),
+    path('<int:table_id>/update_record', views.update_record, name='update_record'),
     path('<int:table_id>/<int:row_id>/delete_record', views.delete_record, name='delete_record')
 ]
